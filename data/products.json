@@ -1,0 +1,82 @@
+{
+  "categories": [
+    {
+      "slug": "nuts",
+      "name": "Industrial Nuts",
+      "blurb": "Precision-threaded nuts in stainless and mild steel for structural and general engineering use.",
+      "items": [
+        { "name": "Hex Nut", "image": "nut-hex.jpg", "alt": "Stainless steel hex nuts of various sizes" },
+        { "name": "Dome Nut", "image": "nut-dome.jpg", "alt": "Polished stainless steel dome cap nuts" },
+        { "name": "Nylock Nut", "image": "nut-nylock.jpg", "alt": "Nylon insert lock nuts with blue nylon ring" },
+        { "name": "Square Nut", "image": "nut-square.jpg", "alt": "Square profile steel nuts" },
+        { "name": "Castle Nut", "image": "nut-castle.jpg", "alt": "Slotted castle nuts for cotter pin locking" },
+        { "name": "Knurled Nut", "image": "nut-knurled.jpg", "alt": "Knurled thumb nut with grip finish" }
+      ]
+    },
+    {
+      "slug": "bolts-screws",
+      "name": "Bolts & Screws",
+      "blurb": "Hex bolts, machine screws and self-drilling fasteners engineered to DIN and ISO tolerances.",
+      "items": [
+        { "name": "Hex Bolts", "image": "bolt-hex.jpg", "alt": "Stainless steel hex head bolts" },
+        { "name": "Machine Screws", "image": "bolt-machine-screw.jpg", "alt": "Phillips pan head machine screw" },
+        { "name": "Allen Bolts", "image": "bolt-allen.jpg", "alt": "Socket head allen bolts" },
+        { "name": "Self Drilling Screws", "image": "bolt-self-drilling.jpg", "alt": "Self drilling screws with drill point tips" },
+        { "name": "Thread Forming Screws", "image": "bolt-thread-forming.jpg", "alt": "Thread forming screws with pan and flange heads" },
+        { "name": "Lag Screws", "image": "bolt-lag-screw.jpg", "alt": "Hex head lag screw for wood and structural joints" }
+      ]
+    },
+    {
+      "slug": "washers",
+      "name": "Washers",
+      "blurb": "Flat, spring and specialty washers that seat loads evenly and lock fasteners in place.",
+      "items": [
+        { "name": "Plain Washers", "image": "washer-plain.jpg", "alt": "Flat stainless steel plain washers" },
+        { "name": "Spring Washers", "image": "washer-spring.jpg", "alt": "Split spring lock washers" },
+        { "name": "Taper Washers", "image": "washer-taper.jpg", "alt": "Rectangular taper washers" },
+        { "name": "Square Washers", "image": "washer-square.jpg", "alt": "Square plate washers" },
+        { "name": "CSK Washers", "image": "washer-csk.jpg", "alt": "Countersunk conical washer" },
+        { "name": "Belleville Washers", "image": "washer-belleville.jpg", "alt": "Stacked Belleville disc spring washers" }
+      ]
+    },
+    {
+      "slug": "studs",
+      "name": "Studs",
+      "blurb": "Threaded studs for flange, weld and dowel applications across heavy machinery.",
+      "items": [
+        { "name": "Fully Threaded Studs", "image": "stud-fully-threaded.jpg", "alt": "Fully threaded steel studs" },
+        { "name": "Dowell Studs", "image": "stud-dowell.jpg", "alt": "Dowel stud with plain shank" },
+        { "name": "Weld Bolt Studs", "image": "stud-weld-bolt.jpg", "alt": "Weld bolt studs with pointed tips" },
+        { "name": "Double End Studs", "image": "stud-double-end.jpg", "alt": "Double end threaded studs bundle" },
+        { "name": "Clinch Studs", "image": "stud-clinch.jpg", "alt": "Clinch studs with domed heads" },
+        { "name": "Tap End Studs", "image": "stud-tap-end.jpg", "alt": "Tap end stud with interference fit thread" }
+      ]
+    },
+    {
+      "slug": "pins",
+      "name": "Pins",
+      "blurb": "Guide, dowel and locking pins machined to tight tolerances for accurate assembly.",
+      "items": [
+        { "name": "Guide Pins", "image": "pin-guide.jpg", "alt": "Grooved guide pin" },
+        { "name": "Dowel Pins", "image": "pin-dowell.jpg", "alt": "Cylindrical dowel pins" },
+        { "name": "Cotter Pins", "image": "pin-cotter.jpg", "alt": "Split cotter pins" },
+        { "name": "Clevis Pins", "image": "pin-clevis.jpg", "alt": "Clevis pin with head and cross hole" },
+        { "name": "Taper Pins", "image": "pin-taper.jpg", "alt": "Tapered steel pins" },
+        { "name": "Spring Pins", "image": "pin-spring.jpg", "alt": "Rolled spring tension pins" }
+      ]
+    },
+    {
+      "slug": "cnc-parts",
+      "name": "CNC Machined Parts",
+      "blurb": "Custom-machined components turned on CNC and TRAUB lines to customer drawings.",
+      "items": [
+        { "name": "Bearing Bush", "image": "cnc-bearing-bush.jpg", "alt": "Precision turned bearing bush components" },
+        { "name": "CTI Nut", "image": "cnc-cti-nut.jpg", "alt": "CTI nut machined component" },
+        { "name": "DIN 908", "image": "cnc-din908.jpg", "alt": "DIN 908 hex socket plugs" },
+        { "name": "Industrial Shaft", "image": "cnc-industrial-shaft.jpg", "alt": "Precision ground industrial shaft" },
+        { "name": "KM Nut", "image": "cnc-km-nut.jpg", "alt": "KM series lock nut" },
+        { "name": "Plug", "image": "cnc-plug.jpg", "alt": "Hex head threaded plug" }
+      ]
+    }
+  ]
+}
