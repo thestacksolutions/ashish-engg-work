@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /php/
+Disallow: /sql/
+
+Sitemap: https://www.ashishengineeringworks.com/sitemap.xml
