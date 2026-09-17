@@ -132,7 +132,10 @@
       <span></span><span></span><span></span>
     </button>
 
-    <nav class="site-nav-panel" id="navPanel" aria-label="Mobile" style="display: none;">
+    <nav class="site-nav-panel" id="navPanel" aria-label="Mobile">
+      <button class="nav-close" id="navClose" aria-label="Close menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
       <a href="#about">About</a>
       <a href="#products">Products</a>
       <a href="#quality">Quality</a>
@@ -367,8 +370,8 @@
           <textarea id="fmessage" name="message" rows="4" required></textarea>
         </div>
 
-        <button type="submit" class="btn btn--primary form-submit">Send Enquiry</button>
-        <p class="form-note">We typically respond within one business day.</p>
+        <button type="submit" class="btn btn--primary form-submit">Send via WhatsApp</button>
+        <p class="form-note">You'll be redirected to WhatsApp with these details filled in — just hit send.</p>
         <div class="form-status" id="formStatus" role="status"></div>
       </form>
     </div>
@@ -406,7 +409,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; <span id="year"></span> Ashish Engineering Works. All rights reserved.</span>
-      <span class="footer-bottom-site-by">Site by <a href="https://wa.me/918793717577" target="_blank">The Stack Solutions</a></span>
+      <span style="opacity: 0.4;">Site developed by <a href="https://wa.me/918793717577" target="_blank" rel="noopener">The Stack Solutions</a></span>
     </div>
   </div>
 </footer>
@@ -415,6 +418,6 @@
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
 </button>
 
-<script src="js/script.min.js" defer></script>
+<script src="js/script.js" defer></script>
 </body>
 </html>
