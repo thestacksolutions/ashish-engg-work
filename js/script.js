@@ -53,22 +53,31 @@
   function initMobileNav() {
     var toggle = $("#navToggle");
     var panel = $("#navPanel");
+    var closeBtn = $("#navClose");
     if (!toggle || !panel) return;
 
-    toggle.addEventListener("click", function () {
-      var open = panel.classList.toggle("is-open");
+    function setOpen(open) {
+      panel.classList.toggle("is-open", open);
       toggle.classList.toggle("is-open", open);
       toggle.setAttribute("aria-expanded", String(open));
       document.body.style.overflow = open ? "hidden" : "";
+    }
+
+    toggle.addEventListener("click", function () {
+      setOpen(!panel.classList.contains("is-open"));
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function () { setOpen(false); });
+    }
+
+    // Close on Escape for keyboard users
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && panel.classList.contains("is-open")) setOpen(false);
     });
 
     $$("a", panel).forEach(function (a) {
-      a.addEventListener("click", function () {
-        panel.classList.remove("is-open");
-        toggle.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
-      });
+      a.addEventListener("click", function () { setOpen(false); });
     });
   }
 
@@ -110,10 +119,10 @@
         .map(function (item, i) {
           return (
             '<article class="product-card" style="animation-delay:' + (i * 45) + 'ms">' +
-              '<div class="product-thumb">' +
-                '<img src="assets/images/' + item.image + '" alt="' + item.alt + '" loading="lazy" width="400" height="400">' +
-              "</div>" +
-              '<h3 class="product-name">' + item.name + "</h3>" +
+            '<div class="product-thumb">' +
+            '<img src="assets/images/' + item.image + '" alt="' + item.alt + '" loading="lazy" width="400" height="400">' +
+            "</div>" +
+            '<h3 class="product-name">' + item.name + "</h3>" +
             "</article>"
           );
         })
@@ -205,7 +214,10 @@
     });
   }
 
-  /* 7. Contact form — posts to php/contact.php, graceful fallback -------- */
+  /* 7. Contact form — redirects to WhatsApp with the enquiry pre-filled -- */
+  // Owner's WhatsApp number (with country code, digits only, no + or spaces).
+  var WHATSAPP_NUMBER = "919820635605";
+
   function initContactForm() {
     var form = $("#enquiryForm");
     var status = $("#formStatus");
@@ -221,42 +233,32 @@
         return;
       }
 
-      var submitBtn = $(".form-submit", form);
-      var originalLabel = submitBtn.textContent;
-      submitBtn.textContent = "Sending…";
-      submitBtn.disabled = true;
+      var data = new FormData(form);
+      var lines = [
+        "New enquiry from the website:",
+        "",
+        "Name: " + data.get("name"),
+        "Phone: " + data.get("phone"),
+        "Email: " + data.get("email"),
+        "Product / Specification: " + (data.get("product") || "-"),
+        "Message: " + data.get("message")
+      ];
+      var text = encodeURIComponent(lines.join("\n"));
 
-      var payload = new FormData(form);
+      status.textContent = "Taking you to WhatsApp to send your enquiry…";
+      status.className = "form-status is-success";
 
-      fetch("php/contact.php", { method: "POST", body: payload })
-        .then(function (res) { return res.json().catch(function () { return { success: res.ok }; }); })
-        .then(function (data) {
-          if (data && data.success) {
-            status.textContent = "Thank you — your enquiry has been sent. We'll be in touch shortly.";
-            status.className = "form-status is-success";
-            form.reset();
-          } else {
-            throw new Error((data && data.message) || "Something went wrong");
-          }
-        })
-        .catch(function () {
-          // Fallback so the enquiry is never lost, even if PHP/MySQL isn't set up yet.
-          var subject = encodeURIComponent("Website Enquiry: " + (payload.get("product") || "General"));
-          var body = encodeURIComponent(
-            "Name: " + payload.get("name") + "\n" +
-            "Phone: " + payload.get("phone") + "\n" +
-            "Email: " + payload.get("email") + "\n" +
-            "Product: " + payload.get("product") + "\n\n" +
-            payload.get("message")
-          );
-          status.textContent = "We couldn't reach the server, so we've opened your email app to send this enquiry directly.";
-          status.className = "form-status is-error";
-          window.location.href = "mailto:ashishengineeringworks9820@gmail.com?subject=" + subject + "&body=" + body;
-        })
-        .finally(function () {
-          submitBtn.textContent = originalLabel;
-          submitBtn.disabled = false;
-        });
+      /* window.location.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + text; */
+
+      var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      var waUrl = isMobile
+        ? "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + text
+        : "https://web.whatsapp.com/send?phone=" + WHATSAPP_NUMBER + "&text=" + text;
+
+      /* window.location.href = waUrl; */
+
+      window.open(waUrl, "_blank", "noopener");
+      form.reset();
     });
   }
 })();
